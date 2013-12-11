@@ -92,6 +92,7 @@ ConVar asw_marine_nearby_angle("asw_marine_nearby_angle", "-75", FCVAR_REPLICATE
 ConVar asw_rts_controls("asw_rts_controls", "0", FCVAR_REPLICATED | FCVAR_CHEAT);
 ConVar asw_controls("asw_controls", "1", FCVAR_REPLICATED | FCVAR_CHEAT, "Disable to get normal FPS controls (affects all players on the server)");
 ConVar asw_hl2_camera("asw_hl2_camera", "0", FCVAR_REPLICATED | FCVAR_DONTRECORD | FCVAR_CHEAT);
+ConVar asw_hide_marine("asw_hide_marine", "1", FCVAR_REPLICATED | FCVAR_CHEAT, "Hides the model for the player");
 
 #ifdef CLIENT_DLL		
 	extern ConVar asw_vehicle_cam_height;
