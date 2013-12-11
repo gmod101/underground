@@ -205,6 +205,12 @@ bool MarineControllingTurret()
 	C_ASW_Player* pPlayer = C_ASW_Player::GetLocalASWPlayer();
 	return (pPlayer && pPlayer->GetMarine() && pPlayer->GetMarine()->IsControllingTurret());
 }
+bool MarineDidPrice()
+//by price
+{
+	C_ASW_Player* pPlayer = C_ASW_Player::GetLocalASWPlayer();
+	return (pPlayer && pPlayer->GetMarine() && pPlayer->GetMarine()->IsHacking());
+}
 
 #define PI 3.14159265358979
 #define ASW_MARINE_HULL_MINS Vector(-13, -13, 0)

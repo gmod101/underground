@@ -20,6 +20,8 @@ void ASW_StoreClearAll();
 
 bool MarineControllingTurret();
 
+bool MarineDidPrice();//by price
+
 bool HUDTraceToWorld(float screenx, float screeny, Vector &HitLocation, bool bUseMarineHull=false);
 C_BaseEntity* HUDToWorld(float screenx, float screeny,
 	Vector &HitLocation, IASW_Client_Aim_Target* &pAutoAimEnt, bool bPreferFlatAiming=false, bool bIgnoreCursorPosition = false, float flForwardMove = 0.0f, float flSideMove = 0.0f);

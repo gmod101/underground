@@ -252,33 +252,7 @@ void CASW_Marine::AvoidPhysicsProps( CUserCmd *pCmd )
 
 Vector CASW_Marine::Weapon_ShootPosition( )
 {
-	Vector forward, right, up, v;
-
-	v = GetAbsOrigin();
-
-	if (IsInVehicle() && GetASWVehicle() && GetASWVehicle()->GetEntity())
-	{
-		v = GetASWVehicle()->GetEntity()->GetAbsOrigin();
-#ifdef CLIENT_DLL
-		if (gpGlobals->maxClients>1 && GetClientsideVehicle() && GetClientsideVehicle()->GetEntity())
-			v = GetClientsideVehicle()->GetEntity()->GetAbsOrigin();		
-#endif
-	}
-
-	QAngle ang = ASWEyeAngles();
-	ang.x = 0;	// clear out pitch, so we're matching the fixes point of our autoaim calcs
-	AngleVectors( ang, &forward, &right, &up );
-	v = v + up * ASW_MARINE_GUN_OFFSET_Z;
-	Vector vecSrc = v
-					+ forward * ASW_MARINE_GUN_OFFSET_X
-					+ right * ASW_MARINE_GUN_OFFSET_Y;
-
-	trace_t tr;
-	UTIL_TraceLine(v, vecSrc, MASK_SHOT, this, COLLISION_GROUP_NONE, &tr);
-	if (tr.fraction < 1.0f)
-		return tr.endpos;
-
-	return vecSrc;
+return EyePosition();
 }
 
 float CASW_Marine::MaxSpeed()

@@ -35,26 +35,6 @@ static 	CClassMemoryPool< CHudTexture >	 g_HudTextureMemoryPool( 128 );
 //-----------------------------------------------------------------------------
 // Purpose: Parses the weapon txt files to get the sprites needed.
 //-----------------------------------------------------------------------------
-struct HudTextureFileRef //new
-{
-	HudTextureFileRef ( const char *cszFileKey, const char *cszHudTexturePrefix )
-	{
-		Q_strncpy( m_cszFileKey, cszFileKey, kcszFileKeyLength );
-		Q_strncpy( m_cszHudTexturePrefix, cszHudTexturePrefix, kcszHudTexturePrefix );
-		m_uiPrefixLength = Q_strlen( cszHudTexturePrefix );
-		m_fileKeySymbol = KeyValuesSystem()->GetSymbolForString( m_cszFileKey );
-		Assert( m_fileKeySymbol != INVALID_KEY_SYMBOL );
-	}
-
-	enum { kcszFileKeyLength = 64, };
-	enum { kcszHudTexturePrefix = 16, };
-
-	char m_cszFileKey[kcszFileKeyLength];
-	char m_cszHudTexturePrefix[kcszHudTexturePrefix];
-	unsigned int m_uiPrefixLength;
-	HKeySymbol m_fileKeySymbol;
-};
-
 void LoadHudTextures( CUtlDict< CHudTexture *, int >& list, char *szFilenameWithoutExtension, const unsigned char *pICEKey )
 {
 	KeyValues *pTemp, *pTextureSection;
